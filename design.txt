@@ -1,0 +1,37 @@
+Card Flip Matching Game App
+
+- Requirements
+    - At game start there are 16 covered cards on 4x4 board
+    - There are 8 type of image, each type has a set of 2 cards in a game
+    - Cards with different image are placed randomly on the board
+    - Player can flip two card at one turn
+    - If two card have the same image, the cards get eliminated
+    - When all cards are eliminated, game complete
+    - When game completed, show message of how many turns spend
+
+- Architecture
+    - Screen
+        - Turn
+        - Board
+            - Cards
+                - Front - Image
+                - Back
+        - Button
+            - New Game
+    - ViewModel
+        - Game state
+            - Turn
+            - Board
+                - Cards
+                    - Front - Image
+                    - Back
+            - Flipped card 1
+            - Flipped card 2
+        - Functions
+            - Start new game
+            - click card
+    - GameLogic
+        - GameBoard
+        - shuffleCards
+        - Place cards
+        - Check same card
