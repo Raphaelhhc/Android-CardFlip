@@ -68,13 +68,12 @@ data class Game(
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Game) return false
-        if (board.contentDeepEquals(other.board)) return false
-        return true
+        return boardSize == other.boardSize &&
+                board.contentDeepEquals(other.board)
     }
 
-    override fun hashCode(): Int {
-        return super.hashCode()
-    }
+    override fun hashCode(): Int =
+        31 * boardSize.hashCode() + board.contentDeepHashCode()
 }
 
 data class GameCard(

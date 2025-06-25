@@ -73,6 +73,8 @@ class GameViewModel @Inject constructor(
             CardStatus.BACK -> card.copy(status = CardStatus.FRONT)
             CardStatus.EMPTY -> error("Shall not be empty")
         }
+        val newGame = _uiState.value.game.copy(board = newBoard)
+        _uiState.value = _uiState.value.copy(game = newGame)
     }
 
     private suspend fun eliminateCard() {
