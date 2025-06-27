@@ -15,14 +15,14 @@ import javax.inject.Inject
 class GameLogic @Inject constructor() {
 
     private val cardTypes = listOf(
-        GameCard(CardStatus.FRONT, CardImage.CHECK),
-        GameCard(CardStatus.FRONT, CardImage.STAR),
-        GameCard(CardStatus.FRONT, CardImage.FACE),
-        GameCard(CardStatus.FRONT, CardImage.HOME),
-        GameCard(CardStatus.FRONT, CardImage.HEART),
-        GameCard(CardStatus.FRONT, CardImage.PERSON),
-        GameCard(CardStatus.FRONT, CardImage.THUMB),
-        GameCard(CardStatus.FRONT, CardImage.PLACE),
+        GameCard(CardStatus.BACK, CardImage.CHECK),
+        GameCard(CardStatus.BACK, CardImage.STAR),
+        GameCard(CardStatus.BACK, CardImage.FACE),
+        GameCard(CardStatus.BACK, CardImage.HOME),
+        GameCard(CardStatus.BACK, CardImage.HEART),
+        GameCard(CardStatus.BACK, CardImage.PERSON),
+        GameCard(CardStatus.BACK, CardImage.THUMB),
+        GameCard(CardStatus.BACK, CardImage.PLACE),
     )
 
     fun createNewGame(boardSize: BoardSize): Game {

@@ -140,7 +140,7 @@ fun GameCardSlot(
                 )
             }
 
-            CardStatus.FRONT -> {
+            CardStatus.BACK -> {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -152,7 +152,7 @@ fun GameCardSlot(
                 )
             }
 
-            CardStatus.BACK -> {
+            CardStatus.FRONT -> {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
