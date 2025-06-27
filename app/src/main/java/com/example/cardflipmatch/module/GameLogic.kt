@@ -27,14 +27,12 @@ class GameLogic @Inject constructor() {
 
     fun createNewGame(boardSize: BoardSize): Game {
         val side = boardSize.side
-        val types = cardTypes.size
-        val newCardOrder = shuffleCard(side * side)
+        val cards = (cardTypes + cardTypes).shuffled()
         val temp = Array(side) { Array<GameCard?>(side) { null } }
-        for (index in newCardOrder) {
-            val typeIndex = index % types
+        for (index in 0 until side * side) {
             val row = index / side
             val col = index % side
-            temp[row][col] = cardTypes[typeIndex]
+            temp[row][col] = cards[index]
         }
         val newBoard: Array<Array<GameCard>> = Array(side) { row ->
             Array(side) { col ->
@@ -45,18 +43,6 @@ class GameLogic @Inject constructor() {
             boardSize = boardSize,
             board = newBoard
         )
-    }
-
-    private fun shuffleCard(totalCard: Int): List<Int> {
-        val normalOrder = (0 until totalCard).toMutableList()
-        val shuffleOrder = mutableListOf<Int>()
-        while (normalOrder.isNotEmpty()) {
-            val randomIndex = (Math.random() * normalOrder.size)
-                .toInt().coerceAtMost(totalCard - 1)
-            shuffleOrder.add(normalOrder[randomIndex])
-            normalOrder.removeAt(randomIndex)
-        }
-        return shuffleOrder.toList()
     }
 
 }
